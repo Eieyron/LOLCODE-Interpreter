@@ -1,0 +1,7 @@
+HAI
+I HAS A var ITZ "HELLO WORLD"
+I HAS A integer ITZ 3
+I HAS A shit ITZ WIN
+I HAS A floater ITZ 3.56
+VISIBLE var
+KTHXBYE
