@@ -9,7 +9,7 @@ public class LexicalAnalyzer {
     private static final Pattern CODE_DELIMITER = Pattern.compile("^(HAI|KTHXBYE)");
     private static final Pattern OUTPUT = Pattern.compile("^(VISIBLE)");
     private static final Pattern INPUT = Pattern.compile("^(GIMMEH)");
-    private static final Pattern INCOMPLETE_KEYWORD = Pattern.compile("^(I|IS|HAS|NOW|A|IM|IN|YR|OUTTA|SUM|OF|DIFF|PRODUKT|QUOSHUNT|MOD|BIGGR|SMALLR|BOTH|SAEM|YA|O|RLY|NO|WAI)");
+    private static final Pattern INCOMPLETE_KEYWORD = Pattern.compile("^(I|IS|HAS|NOW|A|IM|IN|YR|ANY|EITHER|WON|ALL|OF|OUTTA|SUM|OF|DIFF|PRODUKT|QUOSHUNT|MOD|BIGGR|SMALLR|BOTH|SAEM|YA|RLY|O|RLY?|NO|WAI)");
     private static final Pattern INCREMENT = Pattern.compile("^(UPPIN)"); // added
     private static final Pattern RANGE_INDICATOR = Pattern.compile("^(TIL|WILE)"); // added
     private static final Pattern DECREMENT = Pattern.compile("^(NERFIN)"); // added
