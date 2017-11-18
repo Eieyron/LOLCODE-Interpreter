@@ -166,7 +166,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="pathHolder">
               <Properties>
-                <Property name="text" type="java.lang.String" value="C:\u005cUsers\u005cAR\u005cDesktop\u005cproj\u005cLolcodeInterpreter\u005csrc\u005cHelloWorld.lol" containsInvalidXMLChars="true"/>
+                <Property name="text" type="java.lang.String" value="C:\u005cUsers\u005cazurw\u005cDocuments\u005cNetBeansProjects\u005cJavaApplication1\u005csrc\u005c1.lol" containsInvalidXMLChars="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Enter filename here"/>
               </Properties>
               <Events>
@@ -306,11 +306,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

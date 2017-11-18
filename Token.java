@@ -16,9 +16,9 @@ public class Token {
 		System.out.println(this.content + " => " + this.type);
 	}
 
-	public void show(JTextArea lexHolder, JTextArea claHolder){
-		lexHolder.append(this.content + "\n");
-		claHolder.append(this.type + "\n");
+	public void show(int counter, JTextArea lexHolder, JTextArea claHolder){
+		lexHolder.append("[" + counter + "] - " + this.content + "\n");
+		claHolder.append("[" + counter + "] - " + this.type + "\n");
 	}
 
 	public String getContent(){

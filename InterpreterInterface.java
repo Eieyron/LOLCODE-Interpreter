@@ -82,7 +82,7 @@ public class InterpreterInterface extends javax.swing.JFrame {
             }
         });
 
-        pathHolder.setText("C:\\Users\\AR\\Desktop\\proj\\LolcodeInterpreter\\src\\HelloWorld.lol");
+        pathHolder.setText("C:\\Users\\azurw\\Documents\\NetBeansProjects\\JavaApplication1\\src\\1.lol");
         pathHolder.setToolTipText("Enter filename here");
         pathHolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,10 +188,7 @@ public class InterpreterInterface extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3)
-                .addContainerGap())
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         executeButton.setText("Execute");
@@ -339,8 +336,14 @@ public class InterpreterInterface extends javax.swing.JFrame {
         lexemeHolder.setText("");
         identifierHolder.setText("");
         valueHolder.setText("");
+        classHolder.setText("");
         lexicalanalyzer =  new LexicalAnalyzer(pathHolder.getText());
         symboltable = new SymbolTable(lexicalanalyzer.getStack());
+
+        // for(Token t : lexicalanalyzer.getStack()){
+        //     if(t == null)continue;
+        //     t.show();
+        // }
 
         lexicalanalyzer.showCode(codeHolder);
         lexicalanalyzer.showStack(lexemeHolder, classHolder);
