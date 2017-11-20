@@ -6,40 +6,6 @@ import java.util.regex.*;
 public class SyntaxAnalyzer {
 	// attributes
 	private Stack<Token> tokenStack;
-	private Token next;
-	private static int currentLine;
-	private Stack<String> errorReports;
-
-	/* List of DataTypes 
-
-		Source Code Delimiter
-		Visible Keyword
-		Gimmeh Keyword
-		Increment
-		Decrement
-		Hard Typecast
-		Variable Expression
-		Variable Initialization
-		Variable Assignment
-		Boolean Unary
-		Boolean End
-		Different
-		Operation Separator
-		String Concatenate
-		Switch Start
-		Condition End
-		If-else Keyword
-		Case Keyword
-		Default Keyword
-		Break Keyword
-		Integer Literal
-		Float Literal
-		String Literal
-		String Delimiter
-		Boolean Liteal
-		Variable Identifier
-		Newline
-	*/
 
 	// constructor
 	public SyntaxAnalyzer(Stack<Token> tokenStack){
@@ -367,5 +333,4 @@ public class SyntaxAnalyzer {
 
 		}return false;
 	}
-
 }
