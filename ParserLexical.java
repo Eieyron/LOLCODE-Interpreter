@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 import java.util.regex.*;
 
-public class LexicalAnalyzer {
+public class ParserLexical {
     // Contants
     private static final Pattern KEYWORD = Pattern.compile("^(SMOOSH|MAEK|A|IS NOW A|IM IN YR|UPPIN|NERFIN|YR|TIL|WILE|IM OUTTA YR)");
     private static final Pattern CODE_START = Pattern.compile("^(HAI)");
@@ -44,7 +44,7 @@ public class LexicalAnalyzer {
     private Stack<Token> tokenStack;
 
     // Constructor
-    public LexicalAnalyzer(String path){
+    public ParserLexical(String path){
         try {
             FileInputStream input = new FileInputStream(path);
             this.tokenStack = new Stack<Token>();

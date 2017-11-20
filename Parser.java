@@ -1,4 +1,3 @@
-//SymbolTable.java
 import java.util.*;
 import javax.swing.*;
 import java.util.regex.*;
