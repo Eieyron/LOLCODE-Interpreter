@@ -164,9 +164,6 @@ public class LexicalAnalyzer {
             return "Newline";
         }else if(s.equals(",")){
             return "Command Break";
-        }
-        
-        return "No Match";
     }
 
     public String getMultiWordMatchingType(String s){
@@ -289,9 +286,6 @@ public class LexicalAnalyzer {
                 }if(isComment)break;
 
                 if(type.equals("Comment Unary")){ // if a comment starts
-                    lexeme = "\n";
-                    stackOfLexemes.push(lexeme);
-                    lexeme ="";
                     break;
                 }
 
