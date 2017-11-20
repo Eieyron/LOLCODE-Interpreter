@@ -9,7 +9,7 @@ public class LexicalAnalyzer {
     private static final Pattern CODE_DELIMITER = Pattern.compile("^(HAI|KTHXBYE)");
     private static final Pattern OUTPUT = Pattern.compile("^(VISIBLE)");
     private static final Pattern INPUT = Pattern.compile("^(GIMMEH)");
-    private static final Pattern INCOMPLETE_KEYWORD = Pattern.compile("^(I|IS|HAS|NOW|A|IM|IN|YR|ANY|EITHER|WON|ALL|OF|OUTTA|SUM|OF|DIFF|PRODUKT|QUOSHUNT|MOD|BIGGR|SMALLR|BOTH|SAEM|YA|RLY|O|RLY?|NO|WAI)");
+    private static final Pattern INCOMPLETE_KEYWORD = Pattern.compile("^(I|IS|HAS|NOW|A|IM|IN|YR|ANY|EITHER|WON|ALL|OF|OUTTA|SUM|OF|DIFF|PRODUKT|QUOSHUNT|MOD|BIGGR|SMALLR|BOTH|SAEM|YA|RLY|O|RLY\\?|NO|WAI)");
     private static final Pattern INCREMENT = Pattern.compile("^(UPPIN)"); // added
     private static final Pattern RANGE_INDICATOR = Pattern.compile("^(TIL|WILE)"); // added
     private static final Pattern DECREMENT = Pattern.compile("^(NERFIN)"); // added
@@ -24,7 +24,7 @@ public class LexicalAnalyzer {
     private static final Pattern DIFFERENT = Pattern.compile("^(DIFFRINT)"); // added
     private static final Pattern OPERATION_SEPARATOR = Pattern.compile("^(AN)");
     private static final Pattern CONCATENATE = Pattern.compile("^(SMOOSH)");
-    private static final Pattern SWITCH_START = Pattern.compile("^(WTF?)");
+    private static final Pattern SWITCH_START = Pattern.compile("^(WTF\\?)");
     private static final Pattern CONDITION_END = Pattern.compile("^(OIC)");
     private static final Pattern ELSEIF = Pattern.compile("^(MEBBE)");
     private static final Pattern CASE = Pattern.compile("^(OMG)");
@@ -42,7 +42,7 @@ public class LexicalAnalyzer {
     private static final Pattern IS_NOW = Pattern.compile("^(IS NOW A)"); // added
     private static final Pattern IM_IN = Pattern.compile("^(IM IN YR)"); // added
     private static final Pattern IM_OUT = Pattern.compile("^(IM OUTTA YR)"); // added
-    private static final Pattern IF_ELSE_START = Pattern.compile("^(O\\sRLY?)"); // changed
+    private static final Pattern IF_ELSE_START = Pattern.compile("^(O\\sRLY\\?)"); // changed
     private static final Pattern IF = Pattern.compile("^(YA\\sRLY)");
     private static final Pattern ELSE = Pattern.compile("^(NO\\sWAI)");
     private static final Pattern COMPARISON = Pattern.compile("^(BOTH\\sSAEM)");
@@ -141,11 +141,11 @@ public class LexicalAnalyzer {
         }else if(CONDITION_END.matcher(s).matches()){
             return "Condition End";
         }else if(ELSEIF.matcher(s).matches()){
-            return "If-else Keyword";
+            return "Else-If Keyword";
         }else if(CASE.matcher(s).matches()){
             return "Case Keyword";
         }else if(DEFAULT.matcher(s).matches()){
-            return "Defaut Keyword";
+            return "Default Keyword";
         }else if(BREAK.matcher(s).matches()){
             return "Break Keyword";
         }else if(INTEGER.matcher(s).matches()){
@@ -162,6 +162,8 @@ public class LexicalAnalyzer {
             return "Variable Identifier";
         }else if(s.equals("\n")){
             return "Newline";
+        }else if(s.equals(",")){
+            return "Command Break";
         }
         
         return "No Match";
@@ -177,9 +179,9 @@ public class LexicalAnalyzer {
         }else if(IF_ELSE_START.matcher(s).matches()){
             return "If-else Start";
         }else if(IF.matcher(s).matches()){
-            return "If Start";
+            return "If Keyword";
         }else if(ELSE.matcher(s).matches()){
-            return "Else";
+            return "Else Keyword";
         }else if(COMPARISON.matcher(s).matches()){
             return "And";
         }else if(BOOLEAN_AND.matcher(s).matches()){
@@ -187,7 +189,7 @@ public class LexicalAnalyzer {
         }else if(BOOLEAN_OR.matcher(s).matches()){
             return "Infinite Or";
         }else if(BOOLEAN.matcher(s).matches()){
-            return "Boolean Start";
+            return "Boolean Binary";
         }else if(ARITHMETIC.matcher(s).matches()){
             return "Arithmetic";
         }else if(DIVISION.matcher(s).matches()){
@@ -287,6 +289,9 @@ public class LexicalAnalyzer {
                 }if(isComment)break;
 
                 if(type.equals("Comment Unary")){ // if a comment starts
+                    lexeme = "\n";
+                    stackOfLexemes.push(lexeme);
+                    lexeme ="";
                     break;
                 }
 
